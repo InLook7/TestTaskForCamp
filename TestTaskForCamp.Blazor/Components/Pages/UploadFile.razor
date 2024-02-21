@@ -1,7 +1,47 @@
 ﻿@page "/"
+@rendermode RenderMode.InteractiveServer
+@inject IFileService _fileService;
 
 <PageTitle>Upload File</PageTitle>
 
-<h1>Hello, world!</h1>
+<EditForm Model="@_data">
+  <DataAnnotationsValidator />
+  <div class="form">
+  <form class="form-main">
+    <div class="form-group">
+      <h1 class="h">Fill the form</h1>
+      
+      <fieldset>
+      <InputText class="form-control" id="Email" placeholder="Email" @bind-Value="@_data.Email"/>
+        <ValidationMessage For="@(() => _data.Email)"/>
+      </fieldset>
 
-Welcome to your new app.
+      <fieldset>
+        <InputFile class="btn btn-success" id="File" OnChange="OnInputFileChange" accept=".docx"/>
+        <ValidationMessage For="@(() => _data.File)" />
+      </fieldset>
+    </div>
+
+    <button type="button" class="btn btn-primary" id="Button" @onclick="Submit" disabled="@(!context.Validate() || !context.IsModified())">Submit</button>
+    <i class="notification" style="color: @_notificationColor">@_status</i>
+  </form>
+  </div>
+</EditForm>
+
+@code {
+    InputDataModel _data = new InputDataModel();
+    string _status;
+    string _notificationColor;
+
+    private void Submit()
+    { 
+        _status = _fileService.UploadFile(_data);
+        _notificationColor = _status == "File has uploaded successfully!" ? "green" : "red";
+        StateHasChanged();
+    }
+
+    private void OnInputFileChange(InputFileChangeEventArgs e)
+    {
+        _data.File = e.File;
+    }
+}
