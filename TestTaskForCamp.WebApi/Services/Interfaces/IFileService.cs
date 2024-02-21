@@ -2,5 +2,5 @@
 
 public interface IFileService
 {
-    void UploadFileAsync(IFormFile file, string email);
+    void UploadFile(IFormFile file, string email);
 }

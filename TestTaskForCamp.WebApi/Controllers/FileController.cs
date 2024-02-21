@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using TestTaskForCamp.WebApi.Services.Interfaces;
 
 namespace TestTaskForCamp.WebApi.Controllers;
 
@@ -6,9 +7,27 @@ namespace TestTaskForCamp.WebApi.Controllers;
 [Route("api/[controller]")]
 public class FileController : ControllerBase
 {
-    [HttpPost("uploadFile")]
-    public string UploadFile()
+    private readonly IFileService _fileService;
+    
+    public FileController(IFileService fileService)
     {
-        return "";
+        _fileService = fileService;
+    }
+    
+    [HttpPost("uploadFile")]
+    public IActionResult UploadFile()
+    {
+        var file = Request.Form.Files[0];
+        var email = Request.Form["email"].ToString();
+
+        try
+        {
+            _fileService.UploadFile(file, email);
+            return Ok();
+        }
+        catch
+        {
+            return StatusCode(500);
+        }
     }
 }
