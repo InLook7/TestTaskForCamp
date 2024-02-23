@@ -7,7 +7,7 @@ namespace TestTaskForCamp.AzureFunction.Services;
 
 public class EmailService : IEmailService
 {
-    public MimeMessage GenerateEmailMessage(string name, BlobProperties properties, string sasUrl)
+    public MimeMessage GenerateEmailMessage(BlobProperties properties, string sasUrl)
     {
         var message = new MimeMessage();
         
@@ -16,7 +16,7 @@ public class EmailService : IEmailService
         message.Subject = Environment.GetEnvironmentVariable("Subject");
         message.Body = new TextPart("Plain")
         {
-            Text = $"File \"{name}\" is successfully uploaded.\n{sasUrl}"
+            Text = $"Your file is successfully uploaded.\n{sasUrl}"
         };
 
         return message;

@@ -33,9 +33,9 @@
     string _status;
     string _notificationColor;
 
-    private void Submit()
-    { 
-        _status = _fileService.UploadFile(_data);
+    private async void Submit()
+    {
+        _status = await _fileService.UploadFileAsync(_data.File, _data.Email);
         _notificationColor = _status == "File has uploaded successfully!" ? "green" : "red";
         StateHasChanged();
     }

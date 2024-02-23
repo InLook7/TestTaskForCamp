@@ -5,5 +5,5 @@ namespace TestTaskForCamp.Blazor.Services.Interfaces;
 
 public interface IFileService
 {
-    string UploadFile(InputDataModel inputDataModel);
+    Task<string> UploadFileAsync(IBrowserFile file, string email);
 }

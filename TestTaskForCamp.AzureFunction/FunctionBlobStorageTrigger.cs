@@ -8,7 +8,7 @@ using TestTaskForCamp.AzureFunction.Services.Interfaces;
 
 namespace TestTaskForCamp.AzureFunction;
 
-[StorageAccount("BlobConnectionString")]
+[StorageAccount("AzureBlobStorageConnectionString")]
 public class FunctionBlobStorageTrigger
 {
     private readonly ITokenService _tokenService;
@@ -22,12 +22,12 @@ public class FunctionBlobStorageTrigger
     
     [FunctionName("SendEmail")]
     public void Run(
-        [BlobTrigger("container/{name}")] Stream myBlob, string name, BlobProperties properties, Uri uri, ILogger log)
+        [BlobTrigger("containerfordocxfiles/{name}")] Stream myBlob, string name, BlobProperties properties, Uri uri, ILogger log)
     {
         var sasToken = _tokenService.GenerateSasToken(name);
         var sasUrl = uri.AbsoluteUri + "?" + sasToken;
 
-        var message = _emailService.GenerateEmailMessage(name, properties, sasUrl);
+        var message = _emailService.GenerateEmailMessage(properties, sasUrl);
         
         using var client = new SmtpClient();
         client.Connect(Environment.GetEnvironmentVariable("Server"), 465, true);

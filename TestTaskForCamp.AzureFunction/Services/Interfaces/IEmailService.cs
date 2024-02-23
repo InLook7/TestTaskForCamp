@@ -5,5 +5,5 @@ namespace TestTaskForCamp.AzureFunction.Services.Interfaces;
 
 public interface IEmailService
 {
-    MimeMessage GenerateEmailMessage(string name, BlobProperties properties, string sasUrl);
+    MimeMessage GenerateEmailMessage(BlobProperties properties, string sasUrl);
 }

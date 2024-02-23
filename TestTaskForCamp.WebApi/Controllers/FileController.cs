@@ -15,11 +15,8 @@ public class FileController : ControllerBase
     }
     
     [HttpPost("uploadFile")]
-    public IActionResult UploadFile()
+    public IActionResult UploadFile([FromForm]IFormFile file, [FromForm]string email)
     {
-        var file = Request.Form.Files[0];
-        var email = Request.Form["email"].ToString();
-
         try
         {
             _fileService.UploadFile(file, email);

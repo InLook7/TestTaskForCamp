@@ -4,6 +4,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestTaskForCamp.WebApi", "T
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestTaskForCamp.Blazor", "TestTaskForCamp.Blazor\TestTaskForCamp.Blazor.csproj", "{083F9924-0246-47E0-AD05-FE6F63F92300}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestTaskForCamp.AzureFunction", "TestTaskForCamp.AzureFunction\TestTaskForCamp.AzureFunction.csproj", "{5FDD3595-2250-49EB-AF74-97015044BA7F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestTaskForCamp.Tests", "TestTaskForCamp.Tests\TestTaskForCamp.Tests.csproj", "{9F7FC14B-6B82-44A5-BE8B-F2B63D9F75F0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +22,13 @@ Global
 		{083F9924-0246-47E0-AD05-FE6F63F92300}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{083F9924-0246-47E0-AD05-FE6F63F92300}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{083F9924-0246-47E0-AD05-FE6F63F92300}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5FDD3595-2250-49EB-AF74-97015044BA7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5FDD3595-2250-49EB-AF74-97015044BA7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5FDD3595-2250-49EB-AF74-97015044BA7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5FDD3595-2250-49EB-AF74-97015044BA7F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F7FC14B-6B82-44A5-BE8B-F2B63D9F75F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F7FC14B-6B82-44A5-BE8B-F2B63D9F75F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F7FC14B-6B82-44A5-BE8B-F2B63D9F75F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F7FC14B-6B82-44A5-BE8B-F2B63D9F75F0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
